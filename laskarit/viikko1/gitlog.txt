@@ -1,0 +1,114 @@
+commit 1fcdc1d94afc22264d18e7f4fe328b0f83bba54c
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 14:24:43 2022 +0200
+
+    testi commit
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7a8631b618ab1ca3a811837a5b4db6370df33587
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 14:18:37 2022 +0200
+
+    lisää tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d20ecdd7069ec1ad8766760b723caa1bd2a1ba43
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 14:14:38 2022 +0200
+
+    muuta eka ja kolmas
+
+ eka.txt    | 2 ++
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 03eb2d935ecf9c7cfdb67e5c318c5a784625090b
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 14:12:41 2022 +0200
+
+    uudelleennimeä tiedosto->eka
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f5bb503cc2820a97adf06bfb161d502b11f6ac4c
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:55:34 2022 +0200
+
+    poista toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 79a9157bd57ea7bd1c107606948e3e02a6feae91
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:52:05 2022 +0200
+
+    muokkaa tiedosto.txt
+
+ tiedosto.txt | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit d0ec952b289bec10b0b307a143ab981880e04164
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:50:56 2022 +0200
+
+    lisäys tiedosto.txt
+
+ tiedosto.txt | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+commit 921690ba114bded27c331df9be7d341734f0e364
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:45:51 2022 +0200
+
+    lisää stuff hakemisto ja tekstitiedosto
+
+ stuff/lohkare.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 94fe7becf5d395b85cb9cb645ad65bbb22cf08a5
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:36:52 2022 +0200
+
+    lisää toinen.txt ja kolmas.txt sisältö
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 57cf5bb04a0f35f30dfe01f40cc6932545e01833
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:35:06 2022 +0200
+
+    lisää kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 993530aeeb152347ffd0dccfac2fb8efe75d4a36
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:28:39 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 653d4505bff0566304355eeb64b3568009ac6934
+Author: Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>
+Date:   Mon Mar 21 13:24:36 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
