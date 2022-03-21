@@ -1,9 +1,9 @@
-# Viikko 1 harjoitus-repo
-### Osa 1
-**Lihavoitua tekstiä**
-### Osa 2
-*Kursivoitua tekstiä*
-### Osa 3
-**Sekä lihavoitua, että _kursivoitua_ tekstiä**
-### Osa 4
-Tavallista tekstiä
+# Ohjelmistotekniikka, harjoitustyö
+
+## Tehtävät
+
+### Viikko 1
+
+[gitlog.txt](https://github.com/joonas-a/ot-harjoitustyo/tree/master/laskarit/viikko1/gitlog.txt)
+
+[komentorivi.txt](https://github.com/joonas-a/ot-harjoitustyo/tree/master/laskarit/viikko1/komentorivi.txt)
