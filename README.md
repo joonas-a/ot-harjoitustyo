@@ -1,5 +1,11 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+## Dokumentaatio
+
+[Vaatimusmäärittely](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Tuntikirjanpito](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 ## Tehtävät
 
 ### Viikko 1
