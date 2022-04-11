@@ -16,6 +16,7 @@ class Player(pygame.sprite.Sprite):
         self.position = vector((20, 440))
         self.velocity = vector(0,0)
         self.acceleration = vector(0,0)
+        self.dbjump = True
 
     def movement(self):
         self.acceleration = vector(0, 0.5) #allow gravity
@@ -35,7 +36,10 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         collision = pygame.sprite.spritecollide(player, platforms(), False)
         if collision:
-            self.velocity.y = -15
+            self.velocity.y = -12
+        if not collision and self.dbjump == True:
+                self.dbjump = False
+                self.velocity.y = -10
 
     def update(self):
         check_collision = pygame.sprite.spritecollide(player, platforms(), False)
@@ -43,6 +47,7 @@ class Player(pygame.sprite.Sprite):
             if check_collision:
                 self.position.y = check_collision[0].rect.top + 1
                 self.velocity.y = 0
+                self.dbjump = True
 
 class Floor(pygame.sprite.Sprite):
     def __init__(self):
