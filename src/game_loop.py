@@ -1,39 +1,44 @@
 import pygame
 import entities
 
-width = 720
-height = 480
-fps = 60
+class Application:
+    def __init__(self, player, floor, renderer, event_queue, clock):
+        self._player = player
+        self._renderer = renderer
+        self._event_queue = event_queue
+        self._clock = clock
 
-def application():
-    pygame.init()
+    def run(self):
+        while True:
+            """for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        entities.player.jump()
+                        
+            screen.fill((0,0,0)) """
+            if self._event_handler() == False:
+                break
 
-    clock = pygame.time.Clock()
-    screen = pygame.display.set_mode([width, height])
-    pygame.display.set_caption('Platformer')
+            self._player.update()
+            self._player.movement()
 
-    running = True
-    while running:
-        for event in pygame.event.get():
+            #for entity in entities.all_entities():
+            #    screen.blit(entity.surf, entity.rect)
+
+            self._render()
+            self._clock.tick(60)
+
+    def _event_handler(self):
+        for event in self._event_queue.get():
             if event.type == pygame.QUIT:
-                running = False
+                    return False
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     entities.player.jump()
-                    
-        screen.fill((0,0,0))
+                    print("space")
 
-        entities.player.update()
-        entities.player.movement()
-
-        for entity in entities.all_entities():
-            screen.blit(entity.surf, entity.rect)
-
-        
-        pygame.display.update()
-        clock.tick(fps)
-
-    pygame.quit()
-
-if __name__ == "__main__":
-    application()
+    def _render(self):
+        self._renderer.render()
