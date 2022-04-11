@@ -1,4 +1,5 @@
 import unittest
+import pygame
 import game_loop
 
 class TestGameLoop(unittest.TestCase):
