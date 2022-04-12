@@ -8,18 +8,16 @@
 
 - [Changelog](https://github.com/joonas-a/ot-harjoitustyo/blob/master/changelog.txt)
 
-## Tehtävät
+## Tasohyppelypeli
 
-### Viikko 1
+### Käyttäänotto
 
-[gitlog.txt](https://github.com/joonas-a/ot-harjoitustyo/tree/master/laskarit/viikko1/gitlog.txt)
+- Asenna riippuvuudet ```poetry install```
 
-[komentorivi.txt](https://github.com/joonas-a/ot-harjoitustyo/tree/master/laskarit/viikko1/komentorivi.txt)
+- Avaa peli ```poetry run invoke start```
 
-### Viikko 2
+### Muut komentorivikomennot
 
-[Screenshot.png](https://github.com/joonas-a/ot-harjoitustyo/blob/master/laskarit/viikko2/Screenshot.png)
+- Suorita testi(t) ```poetry run invoke test```
 
-### Viikko 3
-
-[Laskarit](https://github.com/joonas-a/ot-harjoitustyo/tree/master/laskarit/viikko3)
+- Generoi testikattavuusraportti ```poetry run invoke coverage-report```
