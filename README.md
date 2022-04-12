@@ -21,3 +21,5 @@
 - Suorita testi(t) ```poetry run invoke test```
 
 - Generoi testikattavuusraportti ```poetry run invoke coverage-report```
+
+- Pylint tarkastukset ```poetry run invoke pylint```
