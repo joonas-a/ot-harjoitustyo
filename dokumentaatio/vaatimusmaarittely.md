@@ -6,26 +6,25 @@ Sovelluksesta tulee yksinkertainen tasohyppelipeli. Tavoitteena on päästä kul
 
 ## Käyttäjät
 
-Sovelluksen käyttämiseen vaaditaan käyttäjätunnus (pelkkä nimi), jonka käyttäjä voi luoda sovelluksen käynnistettyään. Käyttäjänimeä käytetään suoritettujen kenttien muistamiseen. Käyttäjä näkee myös nopeimman aikansa läpäistyllä kentällä.
+Sovelluksen käyttämiseen vaaditaan käyttäjätunnus (pelkkä nimi), jonka käyttäjä voi luoda sovelluksen käynnistettyään. Käyttäjänimeä käytetään suoritettujen kenttien muistamiseen.
 
 ## Toiminnallisuudet
 
-- Käyttäjä voi luoda uniikin käyttäjätunnuksen jolla kirjautua
-- Käyttäjä voi kirjautua ulos
-- Käyttäjä näkee kaikki saatavilla olevat tasot
-- Käyttäjän tulee suorittaa edellinen taso avatakseen seuraavan
-- Käyttäjä näkee parhaan aikansa suoritetuista tasoista
-- Jokaiselle tasolle luodaan myös "hiscores", joista jokainen näkee 3 nopeinta suoritusta
+- [ ] Käyttäjä voi luoda uniikin käyttäjätunnuksen jolla kirjautua
+- [ ] Käyttäjä voi kirjautua ulos
+- [ ] Käyttäjä näkee kaikki saatavilla olevat tasot
+- [ ] Käyttäjän tulee suorittaa edellinen taso avatakseen seuraavan
+- [ ] Peli muistaa käyttäjän suorittamat tasot
 
 ## Pelattavuus
 
-- Käyttäjä voi liikuttaa hahmoansa nuolinäppäimin
-- Hahmo kykenee loikkaamaan välilyönnillä
-- Kentällä voi olla esteitä joita käyttäjä joutuu välttämään
+- [x] Käyttäjä voi liikuttaa hahmoansa nuolinäppäimin
+- [x] Hahmo kykenee loikkaamaan välilyönnillä
+- [ ] Kentällä voi olla esteitä joita käyttäjä joutuu välttämään
 
 ## Mahdollisia jatkokehitysideoita
 
-- Pelattavuuteen uusia ominaisuuksia, kuten joitain kykyjä hahmolle
-- Mahdollisuus valita eri hahmo, jolla eri kyky
+- Pelattavuuteen uusia ominaisuuksia
+- Sovellus näyttää tason suorittamiseen kuluneen ajan
 - Kentille vaarallisia vihollisia
 - Kentille jokin tavoite (puzzle) joka tulee suorittaa
