@@ -1,13 +1,12 @@
 import pygame
-import entities
 
 class Renderer:
-    def __init__(self, screen, entities):
+    def __init__(self, screen, level):
         self._screen = screen
-        self._entities = entities
+        self._level = level
 
     def render(self):
-        for entity in self._entities.all_entities():
-            self._screen.blit(entity.surf, entity.rect)
+        self._screen.fill((0,0,0))
+        self._level.all_sprites.draw(self._screen)
 
         pygame.display.update()
