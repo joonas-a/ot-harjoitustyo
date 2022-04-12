@@ -12,7 +12,7 @@ friction = -0.12
 class Level:
     def __init__(self):
         self.floor = pygame.sprite.Group()
-        self.player = pygame.sprite.GroupSingle()
+        self.player = None
         self.all_sprites = pygame.sprite.Group()
         self.platforms = pygame.sprite.Group()
 

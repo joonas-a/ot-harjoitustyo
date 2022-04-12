@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 
 vector = pygame.math.Vector2
-acceleration = 1
+acceleration = 0.5
 friction = -0.12
 
 class Player(pygame.sprite.Sprite):
