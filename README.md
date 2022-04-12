@@ -8,6 +8,8 @@
 
 - [Changelog](https://github.com/joonas-a/ot-harjoitustyo/blob/master/changelog.txt)
 
+- [Arkkitehtuuri](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Tasohyppelypeli
 
 ### Käyttäänotto
