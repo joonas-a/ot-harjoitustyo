@@ -3,11 +3,6 @@ from pygame.locals import *
 from sprites.player import Player
 from sprites.floor import Floor
 
-x = 720 #game window measurements
-y = 480
-vector = pygame.math.Vector2
-acceleration = 0.5
-friction = -0.12
 
 class Level:
     def __init__(self):
@@ -21,7 +16,6 @@ class Level:
     def update(self):
         self.player.movement()
         self.player.update(self.player, self.platforms)
-
 
     def _initialize_sprites(self):
         self.player = Player()

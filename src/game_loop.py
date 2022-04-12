@@ -1,5 +1,5 @@
 import pygame
-#import entities
+
 
 class Application:
     def __init__(self, level, renderer, event_queue, clock):
@@ -11,7 +11,7 @@ class Application:
     def run(self):
         while True:
 
-            if self._event_handler() == False:
+            if self._event_handler() is False:
                 break
 
             self._level.update()
@@ -22,11 +22,12 @@ class Application:
     def _event_handler(self):
         for event in self._event_queue.get():
             if event.type == pygame.QUIT:
-                    return False
+                return False
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    self._level.player.jump(self._level.player, self._level.platforms)
+                    self._level.player.jump(
+                        self._level.player, self._level.platforms)
 
     def _render(self):
         self._renderer.render()

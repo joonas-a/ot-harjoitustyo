@@ -6,6 +6,7 @@ from event_queue import EventQueue
 from renderer import Renderer
 from clock import Clock
 
+
 def main():
     width = 800
     height = 600

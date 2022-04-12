@@ -1,32 +1,33 @@
 import pygame
 from pygame.locals import *
 
-vector = pygame.math.Vector2
-acceleration = 0.5
-friction = -0.12
+VECTOR = pygame.math.Vector2
+ACCELERATION = 0.5
+FRICTION = -0.12
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
 
         self.image = pygame.Surface((25, 40))
-        self.image.fill((255,255,0))
+        self.image.fill((255, 255, 0))
         self.rect = self.image.get_rect()
-        self.position = vector((20, 580))
-        self.velocity = vector(0,0)
-        self.acceleration = vector(0,0)
+        self.position = VECTOR((20, 580))
+        self.velocity = VECTOR(0, 0)
+        self.acceleration = VECTOR(0, 0)
         self.dbjump = True
 
     def movement(self):
-        self.acceleration = vector(0, 0.5) #allow gravity
+        self.acceleration = VECTOR(0, 0.5)  # allow gravity
         pressed_key = pygame.key.get_pressed()
 
         if pressed_key[K_LEFT]:
-            self.acceleration.x = -acceleration
+            self.acceleration.x = -ACCELERATION
         if pressed_key[K_RIGHT]:
-            self.acceleration.x = +acceleration
+            self.acceleration.x = +ACCELERATION
 
-        self.acceleration.x += self.velocity.x * friction
+        self.acceleration.x += self.velocity.x * FRICTION
         self.velocity += self.acceleration
         self.position += self.velocity + 0.5 * self.acceleration
 
@@ -36,9 +37,9 @@ class Player(pygame.sprite.Sprite):
         collision = pygame.sprite.spritecollide(player, platforms, False)
         if collision:
             self.velocity.y = -15
-        if not collision and self.dbjump == True:
-                self.dbjump = False
-                self.velocity.y = -10
+        if not collision and self.dbjump is True:
+            self.dbjump = False
+            self.velocity.y = -10
 
     def update(self, player, platforms):
         check_collision = pygame.sprite.spritecollide(player, platforms, False)
