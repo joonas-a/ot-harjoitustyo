@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 from sprites.player import Player
 from sprites.floor import Floor
 

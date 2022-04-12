@@ -1,5 +1,5 @@
 import pygame
-from pygame.locals import *
+from pygame.locals import K_LEFT, K_RIGHT
 
 VECTOR = pygame.math.Vector2
 ACCELERATION = 0.5
