@@ -12,7 +12,8 @@ Sovelluksen käyttämiseen vaaditaan käyttäjätunnus (pelkkä nimi), jonka kä
 
 - [ ] Käyttäjä voi luoda uniikin käyttäjätunnuksen jolla kirjautua
 - [ ] Käyttäjä voi kirjautua ulos
-- [ ] Käyttäjä näkee kaikki saatavilla olevat tasot
+- [x] Sovelluksella on päävalikko
+- [ ] Käyttäjä näkee päävalikosta kaikki saatavilla olevat tasot
 - [ ] Käyttäjän tulee suorittaa edellinen taso avatakseen seuraavan
 - [ ] Peli muistaa käyttäjän suorittamat tasot
 
