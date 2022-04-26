@@ -1,4 +1,5 @@
 import pygame
+from menu import Menu
 from sprites.player import Player
 from sprites.floor import Floor
 
@@ -9,8 +10,12 @@ class Level:
         self.player = None
         self.all_sprites = pygame.sprite.Group()
         self.platforms = pygame.sprite.Group()
+        self.menu = Menu()
 
         self._initialize_sprites()
+
+    def in_menu(self):
+        self.menu.display_menu()
 
     def update(self):
         self.player.movement()

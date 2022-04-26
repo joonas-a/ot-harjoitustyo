@@ -8,6 +8,7 @@ authors = ["Joonas Ahovalli <9369455+joonas-a@users.noreply.github.com>"]
 python = "^3.8"
 pygame = "^2.1.2"
 invoke = "^1.7.0"
+pygame-menu = "^4.2.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
