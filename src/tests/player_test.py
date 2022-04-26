@@ -15,3 +15,11 @@ class TestPlayer(unittest.TestCase):
     def test_can_jump_velocity_check(self):
         self._player.jump(self._player, self._platforms)
         self.assertEqual(self._player.velocity.y, -10)
+"""
+    def test_no_falling_through_floor(self):
+        self.assertEqual(self._player.velocity.y, 0)
+
+    def test_gravity_works(self):
+        self.assertEqual(self._player.velocity.y, 0)
+        self._player.movement()
+        self.assertEqual(self._player.velocity.y, 0)"""
