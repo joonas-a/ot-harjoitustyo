@@ -8,5 +8,5 @@
 |11.4.  | 7    | ohjelman rakenteen parantaminen |
 |12.4.  | 6    | refaktorointia, testien lisääminen, coverage + pylint |
 |25.4.  | 2    | lisätoiminnallisuuden suunnitteleminen, pygame-menu kirjastoon perehtyminen |
-| 26.4. | 7    | päävalikon lisääminen |
-| Yht. | 35 |
+| 26.4. | 8    | päävalikon ja testien lisääminen |
+| Yht. | 36 |
