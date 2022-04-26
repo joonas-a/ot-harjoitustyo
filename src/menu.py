@@ -20,4 +20,9 @@ class Menu:
         self._screen.fill((0,0,0))
         self.draw_text('Press SPACE to play', self._color, 20, 20)
         self.draw_text('Press ESCAPE to return', self._color, 20, 80)
-        self.draw_text('Press ESCAPE again to quit', self._color, 20, 170)
+        self.draw_text('Press ESCAPE again to quit', self._color, 20, 140)
+        self.draw_text('Press R to reset the game', self._color, 20, 200)
+
+class Button(pygame.Rect):
+    def __init__(self):
+        pass

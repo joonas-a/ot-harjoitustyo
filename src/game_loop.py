@@ -32,8 +32,10 @@ class Application:
                     if self._in_menu:
                         self._in_menu = False
                     else:
-                        self._level.player.jump(
-                            self._level.player, self._level.platforms)
+                        self._level.player.jump(self._level.player, self._level.platforms)
+                if event.key == pygame.K_r:
+                    self._level.reset()
+
                 if event.key == pygame.K_ESCAPE:
                     if self._in_menu:
                         return False

@@ -21,6 +21,9 @@ class Level:
         self.player.movement()
         self.player.update(self.player, self.platforms)
 
+    def reset(self):
+        self.__init__()
+
     def _initialize_sprites(self):
         self.player = Player()
         self.floor = Floor()
