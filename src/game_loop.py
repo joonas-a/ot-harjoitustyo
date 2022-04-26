@@ -41,6 +41,7 @@ class Application:
                         return False
                     self._in_menu = True
 
+            return True #clears pylint error
 
     def _render(self):
         if self._in_menu:
