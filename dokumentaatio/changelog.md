@@ -1,5 +1,9 @@
 # Changelog
 
+## Viikko 6
+
+- Paranneltu käyttöliittymää huomattavasti
+
 ## Viikko 5
 
 - Käyttäjä voi nollata/alustaa pelin painamalla R
