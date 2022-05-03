@@ -49,7 +49,7 @@ class Application:
 
                 elif event.key == pygame.K_RETURN and self._menu_state == 1:
                     self._edit_menu_state(self._level.menu.get_state())
-                    
+
             return True
 
 

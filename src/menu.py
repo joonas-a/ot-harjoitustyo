@@ -1,15 +1,15 @@
-import pygame
 import os
+import pygame
 
 pygame.font.init()
-dirname = os.path.dirname(__file__)
-font = pygame.font.Font(os.path.join(dirname, "fonts", "PixeloidSansBold.ttf"), 64)
+DIRNAME = os.path.dirname(__file__)
+FONT = pygame.font.Font(os.path.join(DIRNAME, "fonts", "PixeloidSansBold.ttf"), 64)
 
 
 class Menu:
     def __init__(self):
         self._screen = pygame.display.get_surface()
-        self._font = font
+        self._font = FONT
         self._color = (255, 150, 0)
         self._selected_color = (255, 230, 0)
         self._state = 0
