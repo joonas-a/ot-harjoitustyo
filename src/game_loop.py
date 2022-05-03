@@ -6,7 +6,7 @@ class Application:
         self._renderer = renderer
         self._event_queue = event_queue
         self._clock = clock
-        self._in_menu = True
+        self._menu_state = 1
 
     def run(self):
 
@@ -14,8 +14,8 @@ class Application:
 
             if self._event_handler() is False:
                 break
-            if self._in_menu:
-                self._level.in_menu()
+            if self._menu_state == 1 or self._menu_state == 2:
+                self._level.in_menu(self._menu_state)
             else:
                 self._level.update()
 
@@ -28,23 +28,46 @@ class Application:
                 return False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    if self._in_menu:
-                        self._in_menu = False
-                    else:
-                        self._level.player.jump(self._level.player, self._level.platforms)
+                if event.key == pygame.K_SPACE and self._menu_state != -1:
+                    self._menu_state = -1
+                    return
+                if event.key == pygame.K_SPACE and self._menu_state == -1:
+                    self._level.player.jump(self._level.player, self._level.platforms)
                 if event.key == pygame.K_r:
                     self._level.reset()
 
-                if event.key == pygame.K_ESCAPE:
-                    if self._in_menu:
-                        return False
-                    self._in_menu = True
+                if event.key == pygame.K_DOWN and self._menu_state == 1:
+                    self._level.menu.click_down()
 
-            return True #clears pylint error
+                if event.key == pygame.K_UP and self._menu_state == 1:
+                    self._level.menu.click_up()
+
+                if event.key == pygame.K_ESCAPE and self._menu_state != 1:
+                    self._menu_state = 1
+
+                if event.key == pygame.K_RETURN and self._level.menu.get_state() == 3:
+                    return False
+
+                if event.key == pygame.K_RETURN and self._menu_state == 2:
+                    self._menu_state = 1
+
+                elif event.key == pygame.K_RETURN and self._menu_state == 1:
+                    self._edit_menu_state(self._level.menu.get_state())
+
+
+    def _edit_menu_state(self, state):
+        if state == 0:
+            self._menu_state = -1
+        if state == 1:
+            self._menu_state = 2
+        if state == 2:
+            self._level.reset()
+            self._menu_state = 1
+        if state == 3:
+            self._menu_state = 1
 
     def _render(self):
-        if self._in_menu:
+        if self._menu_state != -1:
             self._renderer.render_menu()
         else:
             self._renderer.render()

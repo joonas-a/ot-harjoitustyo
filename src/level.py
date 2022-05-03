@@ -14,8 +14,15 @@ class Level:
 
         self._initialize_sprites()
 
-    def in_menu(self):
-        self.menu.display_menu()
+    def in_menu(self, option):
+        if option == 1:
+            self.menu.display_menu()
+        if option == 2:
+            self.menu.display_controls()
+
+
+    def in_controls(self):
+        self.menu.display_controls()
 
     def update(self):
         self.player.movement()
