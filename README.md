@@ -10,6 +10,8 @@
 
 - [Arkkitehtuuri](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+- [Käyttöohje](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 ## Tasohyppelypeli
 
 ### Käyttäänotto
