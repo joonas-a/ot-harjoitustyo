@@ -28,13 +28,9 @@ class Application:
                 return False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE and self._menu_state != -1:
-                    self._menu_state = -1
-                    return
+
                 if event.key == pygame.K_SPACE and self._menu_state == -1:
                     self._level.player.jump(self._level.player, self._level.platforms)
-                if event.key == pygame.K_r:
-                    self._level.reset()
 
                 if event.key == pygame.K_DOWN and self._menu_state == 1:
                     self._level.menu.click_down()
@@ -53,6 +49,8 @@ class Application:
 
                 elif event.key == pygame.K_RETURN and self._menu_state == 1:
                     self._edit_menu_state(self._level.menu.get_state())
+                    
+            return True
 
 
     def _edit_menu_state(self, state):
