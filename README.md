@@ -6,7 +6,7 @@
 
 - [Tuntikirjanpito](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-- [Changelog](https://github.com/joonas-a/ot-harjoitustyo/blob/master/changelog.txt)
+- [Changelog](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
 - [Arkkitehtuuri](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
