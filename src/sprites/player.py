@@ -46,7 +46,7 @@ class Player(pygame.sprite.Sprite):
 
         # prevent walking off-screen horizontally
         if self.rect.left <= 0:
-            self.rect.left = 0        
+            self.rect.left = 0
         elif self.rect.right >= right_limit:
             self.rect.right = right_limit
 
@@ -76,7 +76,7 @@ class Player(pygame.sprite.Sprite):
                 elif self.velocity.y < 0:
                     self.rect.top = sprite.rect.bottom
                     self.velocity.y = 0
-        
+
         if self.velocity.y > 1:
             self.on_ground = False
 
@@ -84,9 +84,16 @@ class Player(pygame.sprite.Sprite):
         for sprite in switches.sprites():
             if sprite.rect.colliderect(self.rect):
                 return True
-            #return False
+        return False
 
     def check_level_completion(self, door):
         for sprite in door.sprites():
             if sprite.rect.colliderect(self.rect):
                 return True
+        return False
+
+    def check_falling_out_of_map(self):
+        bottom = pygame.display.get_window_size()[1]
+        if self.rect.top > bottom:
+            return True
+        return False

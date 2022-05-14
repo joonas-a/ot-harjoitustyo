@@ -14,7 +14,7 @@ class Application:
 
             if self._event_handler() is False:
                 break
-            if self._menu_state == 1 or self._menu_state == 2:
+            if self._menu_state in (1, 2):
                 self._level.in_menu(self._menu_state)
             else:
                 self._level.update()
@@ -49,8 +49,7 @@ class Application:
                 elif event.key == pygame.K_RETURN and self._menu_state == 1:
                     self._edit_menu_state(self._level.menu.get_state())
 
-            return True
-
+            #return True #clears pylint error, however causes X button to not function
 
     def _edit_menu_state(self, state):
         if state == 0:
