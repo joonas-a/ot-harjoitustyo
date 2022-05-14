@@ -1,5 +1,5 @@
 import pygame
-from level import Level
+from level import LEVEL_1_STAGE_1, Level
 from game_loop import Application
 from event_queue import EventQueue
 from renderer import Renderer
@@ -14,7 +14,7 @@ def main():
     pygame.display.set_caption(title)
     screen = pygame.display.set_mode((width, height))
 
-    level = Level()
+    level = Level(LEVEL_1_STAGE_1)
     event_queue = EventQueue()
     renderer = Renderer(screen, level)
     clock = Clock()

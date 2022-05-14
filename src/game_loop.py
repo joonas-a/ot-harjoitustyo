@@ -18,7 +18,6 @@ class Application:
                 self._level.in_menu(self._menu_state)
             else:
                 self._level.update()
-
             self._render()
             self._clock.tick(60)
 

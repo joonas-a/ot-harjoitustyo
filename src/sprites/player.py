@@ -3,13 +3,12 @@ import pygame
 VECTOR = pygame.math.Vector2
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, position):
         super().__init__()
 
-        self.default_pos = (20, 520)
         self.image = pygame.Surface((25, 40))
         self.image.fill((255, 255, 0))
-        self.rect = self.image.get_rect(topleft = (self.default_pos))
+        self.rect = self.image.get_rect(topleft = (position))
         self.velocity = VECTOR(0, 0)
 
         self.speed = 5
@@ -43,6 +42,13 @@ class Player(pygame.sprite.Sprite):
 
     def horizontal_collision(self, tiles):
         self.rect.x += self.velocity.x
+        right_limit = pygame.display.get_window_size()[0]
+
+        # prevent walking off-screen horizontally
+        if self.rect.left <= 0:
+            self.rect.left = 0        
+        elif self.rect.right >= right_limit:
+            self.rect.right = right_limit
 
         for sprite in tiles.sprites():
             if sprite.rect.colliderect(self.rect):
@@ -53,6 +59,12 @@ class Player(pygame.sprite.Sprite):
 
     def vertical_collision(self, tiles):
         self._apply_gravity()
+
+        # prevent jumping off-screen
+        if self.rect.top <= 0:
+            self.rect.top = 0
+            self.velocity.y = 0
+            self._apply_gravity()
 
         for sprite in tiles.sprites():
             if sprite.rect.colliderect(self.rect):
@@ -67,3 +79,14 @@ class Player(pygame.sprite.Sprite):
         
         if self.velocity.y > 1:
             self.on_ground = False
+
+    def check_switch_activation(self, switches):
+        for sprite in switches.sprites():
+            if sprite.rect.colliderect(self.rect):
+                return True
+            #return False
+
+    def check_level_completion(self, door):
+        for sprite in door.sprites():
+            if sprite.rect.colliderect(self.rect):
+                return True
