@@ -30,7 +30,7 @@ class Application:
             if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_SPACE and self._menu_state == -1:
-                    self._level.player.jump(self._level.player, self._level.platforms)
+                    self._level.player.jump()
 
                 if event.key == pygame.K_DOWN and self._menu_state == 1:
                     self._level.menu.click_down()
