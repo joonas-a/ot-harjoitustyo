@@ -41,7 +41,6 @@ class Player(pygame.sprite.Sprite):
         self.velocity.y += self.gravity
         self.rect.y += self.velocity.y
 
-
     def horizontal_collision(self, tiles):
         self.rect.x += self.velocity.x
 
@@ -65,3 +64,6 @@ class Player(pygame.sprite.Sprite):
                 elif self.velocity.y < 0:
                     self.rect.top = sprite.rect.bottom
                     self.velocity.y = 0
+        
+        if self.velocity.y > 1:
+            self.on_ground = False
