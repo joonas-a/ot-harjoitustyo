@@ -1,6 +1,6 @@
 import pygame
 from ui.menu import Menu
-from stages import STAGE_1, STAGE_2, STAGE_3, STAGE_4
+from data.stages import STAGE_1, STAGE_2, STAGE_3, STAGE_4
 import queries
 from sprites.player import Player
 from sprites.floor import Floor
@@ -13,6 +13,16 @@ ALL_STAGES = [STAGE_1, STAGE_2, STAGE_3, STAGE_4]
 
 
 class Level:
+    """Luokka, joka ylläpitää jokaisella pelin tasolla tapahtuvaa toimintaa
+    Valtaosa pelin logiikasta tapahtuu tämän luokan sisällä.
+
+    Attributes:
+        current_stage: pitää kirjaa millä pelitasolla ollaan, erityisesti tasoa resetoidessa
+                       tärkeä, että pysytään samalla tasolla
+        save_id:    sama kuin current_stage, käytetään oikealle tilille tason läpäisemisen
+                    kirjaamiseen
+    """
+
     def __init__(self, current_stage=ALL_STAGES[0], save_id=1):
         self.current_stage = current_stage #this can be hard-coded for testing
         self.save_id = save_id

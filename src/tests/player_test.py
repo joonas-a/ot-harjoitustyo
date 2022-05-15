@@ -1,25 +1,25 @@
 import unittest
-from level import Level
+from sprites.player import Player
 
 
 class TestPlayer(unittest.TestCase):
     def setUp(self):
-        self._level = Level()
-        self._player = self._level.player
-        self._platforms = self._level.platforms
+        self._player = Player((0, 0))
 
     def assert_coordinates_equal(self, sprite, x, y):
         self.assertEqual(sprite.rect.x, x)
         self.assertEqual(sprite.rect.y, y)
 
-    def test_can_jump_velocity_check(self):
-        self._player.jump(self._player, self._platforms)
-        self.assertEqual(self._player.velocity.y, -10)
-"""
-    def test_no_falling_through_floor(self):
-        self.assertEqual(self._player.velocity.y, 0)
+    def test_can_jump(self):
+        self._player.on_ground = True
+        self._player.jump()
+        self.assertEqual(self._player.velocity.y, self._player.jump_height)
+
+    def test_can_double_jump(self):
+        self._player.jump()
+        self.assertEqual(self._player.velocity.y, self._player.double_jump_height)
 
     def test_gravity_works(self):
         self.assertEqual(self._player.velocity.y, 0)
-        self._player.movement()
-        self.assertEqual(self._player.velocity.y, 0)"""
+        self._player._apply_gravity()
+        self.assertNotEqual(self._player.velocity.y, 0)

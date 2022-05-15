@@ -1,6 +1,13 @@
 import pygame
 
 class Switch(pygame.sprite.Sprite):
+    """Luokka painikelaatalle
+
+        Attributes:
+        cell_size: laatan koko, minä se renderöidään tasolle
+        x,y_coord: laatan sijoitus x,y-koordinaatistolla
+        color: laatan väri, default harmaa
+    """
     def __init__(self, cell_size, x_coord, y_coord):
         super().__init__()
 
@@ -9,12 +16,3 @@ class Switch(pygame.sprite.Sprite):
         self.image.fill((128, 128, 128))
         self.rect = self.image.get_rect(bottomleft=(x_coord + 0.1 * cell_size \
             , y_coord + cell_size))
-
-    def toggle_switch_on(self):
-        self.is_activated = True
-
-    def toggle_switch_off(self):
-        self.is_activated = False
-
-    def get_status(self):
-        return self.is_activated

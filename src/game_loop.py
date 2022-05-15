@@ -1,6 +1,15 @@
 import pygame
 
 class Application:
+    """Pelin pääsilmukka, joka määrää mitä ruudulle piirretään, riippuen Level-luokasta
+
+        Attributes: Level: pelin logiikka
+                    Renderer: piirtää ruudulle joko valikko, tai pelinäkymän
+                    Event_queue: hakee jokaisen pygame-eventin (kuten näppäinten painallus)
+                    Clock: Rajoittaa pelin silmukan läpikäynnin fps-kertaa sekunnissa (default 60)
+                    Save_id: saadaan tallennusslottia valittaessa. Save_id on application luokan sisällä,
+                             ettei se katoa aina Level-luokkaa resetoidessa.
+    """
     def __init__(self, level, renderer, event_queue, clock, save_id=1):
         self._level = level
         self._renderer = renderer

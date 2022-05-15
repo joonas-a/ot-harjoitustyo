@@ -3,6 +3,12 @@ import pygame
 VECTOR = pygame.math.Vector2
 
 class Player(pygame.sprite.Sprite):
+    """Luokka pelattavalle hahmolle. Valtaosa pelihahmoon liittyvästä logiikasta tapahtuu täällä.
+        Metodeita kutsutaan pääasiassa Level-luokasta, joka vastaa pelin päälogiikasta.
+
+        Attributes:
+            position: määrittelee mihin pelihahmo sijoitetaan x,y koordinaatistolla pelitasoa alustaessa
+    """
     def __init__(self, position):
         super().__init__()
 

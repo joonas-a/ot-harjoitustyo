@@ -2,6 +2,13 @@ import pygame
 
 
 class Door(pygame.sprite.Sprite):
+    """Luokka ovelle tasolla. Ovi on pääsääntöisesti maali joka tasolla.
+
+        Attributes:
+        cell_size: oven koko, minä se renderöidään tasolle
+        x,y_coord: oven sijoitus x,y-koordinaatistolla
+        color: oven väri, default vihreä
+    """
     def __init__(self, cell_size, x_coord, y_coord):
         super().__init__()
 
