@@ -1,5 +1,6 @@
 import pygame
 from menu import Menu
+import queries
 from sprites.player import Player
 from sprites.floor import Floor
 from sprites.switch import Switch
@@ -7,7 +8,7 @@ from sprites.door import Door
 
 CELL_SIZE = 40
 
-LEVEL_1_STAGE_1 = [
+STAGE_1 = [
     [0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
     [2, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
@@ -24,7 +25,7 @@ LEVEL_1_STAGE_1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0]
 ]
-LEVEL_1_STAGE_2 = [
+STAGE_2 = [
     [0, 0, 0, 0, 1, 4, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 4, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -41,7 +42,7 @@ LEVEL_1_STAGE_2 = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0]
 ]
-LEVEL_1_STAGE_3 = [
+STAGE_3 = [
     [1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 3, 3, 3, 4],
     [1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 3, 3, 4],
     [1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 3, 1, 1],
@@ -58,10 +59,12 @@ LEVEL_1_STAGE_3 = [
     [1, 1, 0, 0, 0, 0, 0, 3, 0, 3, 0, 3, 0, 0, 0, 0, 5, 5, 0, 3],
     [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
+ALL_STAGES = [STAGE_1, STAGE_2, STAGE_3]
 
 class Level:
-    def __init__(self, current_stage):
-        self.current_stage = current_stage #this can be changed hard-coded for testing
+    def __init__(self, current_stage=STAGE_1, save_id=1):
+        self.current_stage = current_stage #this can be hard-coded for testing
+        self.save_id = save_id
         self.player = None
         self.floor = pygame.sprite.Group()
         self.removable_floor = pygame.sprite.Group()
@@ -76,15 +79,23 @@ class Level:
 
         self._initialize_sprites(self.current_stage)
 
-    def in_menu(self, option):
+
+    def in_menu(self, option, save_id=1):
         if option == 1:
             self.menu.display_menu()
         if option == 2:
             self.menu.display_controls()
+        if option == 10:
+            self.menu.start_screen(queries.get_saves())
+        if option == 20:
+            highest = queries.get_completed(save_id)
+            self.menu.level_selector(highest)
 
+    def get_menu_state(self):
+        return self.menu.get_state()
 
-    def in_controls(self):
-        self.menu.display_controls()
+    def reset_selector(self):
+        self.menu.reset_state()
 
     def update(self):
         #self.player.update(self.player, self.platforms)
@@ -99,13 +110,28 @@ class Level:
             self.reset()
 
     def reset(self):
-        self.__init__(self.current_stage)
+        self.__init__(self.current_stage, self.save_id)
+
+    def has_access_to_stage(self, stage):
+        highest = queries.get_completed(self.save_id)
+        return highest >= stage
+
+    def load_stage(self, stage: int):
+        if self.has_access_to_stage(stage):
+            self.__init__(ALL_STAGES[stage], self.save_id)
+            return True
+        return False
+
+    def load_save(self, save_id):
+        self.save_id = save_id
 
     def next_stage(self):
-        if self.current_stage == LEVEL_1_STAGE_1:
-            self.__init__(LEVEL_1_STAGE_2)
-        elif self.current_stage == LEVEL_1_STAGE_2:
-            self.__init__(LEVEL_1_STAGE_3)
+        if self.current_stage == STAGE_1:
+            queries.set_highest(1, self.save_id)
+            self.__init__(STAGE_2, self.save_id)
+        elif self.current_stage == STAGE_2:
+            queries.set_highest(2, self.save_id)
+            self.__init__(STAGE_3, self.save_id)
 
     def toggle_transparent_blocks(self):
         self.platforms.remove(self.removable_floor)
@@ -114,11 +140,11 @@ class Level:
         self.platforms.add(self.ghost_floor)
 
     def get_player_coordinates(self):
-        if self.current_stage == LEVEL_1_STAGE_1:
+        if self.current_stage == STAGE_1:
             return (0, 520)
-        if self.current_stage == LEVEL_1_STAGE_2:
+        if self.current_stage == STAGE_2:
             return (0, 80)
-        if self.current_stage == LEVEL_1_STAGE_3:
+        if self.current_stage == STAGE_3:
             return (240, 40)
         return (0, 0)
 

@@ -11,9 +11,10 @@ class Menu:
         self._screen = pygame.display.get_surface()
         self._font = FONT
         self._color = (255, 150, 0)
-        self._selected_color = (255, 230, 0)
+        self._unavailable_color = (82, 40, 0)
         self._state = 0
         self._selector = Selector(self._screen, self._font)
+        self._center = self._screen.get_width() / 2
 
     def draw_text(self, text, color, text_x, text_y):
         textobj = self._font.render(text, 1, color)
@@ -25,7 +26,7 @@ class Menu:
         self._screen.fill((0, 0, 0))
         self.draw_text('Play', self._color, self._screen.get_width() / 2, 180)
         self.draw_text('Controls', self._color, self._screen.get_width() / 2, 250)
-        self.draw_text('Reset level', self._color, self._screen.get_width() / 2, 320)
+        self.draw_text('Reset stage', self._color, self._screen.get_width() / 2, 320)
         self.draw_text('Quit', self._color, self._screen.get_width() / 2, 390)
         self._selector.draw_selector(self._state)
 
@@ -38,6 +39,41 @@ class Menu:
         self.draw_text('Back', self._color, self._screen.get_width() / 2, 530)
         self._selector.draw_selector(5)
 
+    def start_screen(self, saves):
+        #saves = queries.get_saves()
+
+        self._screen.fill((0, 0, 0))
+        self.draw_text('Select a save', self._color, self._screen.get_width() / 2, 80)
+        self.draw_text(saves[0][1], self._color, self._screen.get_width() / 2, 180)
+        self.draw_text(saves[1][1], self._color, self._screen.get_width() / 2, 250)
+        self.draw_text(saves[2][1], self._color, self._screen.get_width() / 2, 320)
+        self.draw_text(saves[3][1], self._color, self._screen.get_width() / 2, 390)
+        self._selector.draw_selector(self._state)
+
+    def level_selector(self, highest):
+        self._screen.fill((0, 0, 0))
+        if highest == 0:
+            self.draw_text('Stage 1', self._color, self._center, 180)
+            self.draw_text('Stage 2', self._unavailable_color, self._center, 250)
+            self.draw_text('Stage 3', self._unavailable_color, self._center, 320)
+            self.draw_text('Stage 4', self._unavailable_color, self._center, 390)
+        if highest == 1:
+            self.draw_text('Stage 1', self._color, self._center, 180)
+            self.draw_text('Stage 2', self._color, self._center, 250)
+            self.draw_text('Stage 3', self._unavailable_color, self._center, 320)
+            self.draw_text('Stage 4', self._unavailable_color, self._center, 390)
+        if highest == 2:
+            self.draw_text('Stage 1', self._color, self._center, 180)
+            self.draw_text('Stage 2', self._color, self._center, 250)
+            self.draw_text('Stage 3', self._color, self._center, 320)
+            self.draw_text('Stage 4', self._unavailable_color, self._center, 390)
+        if highest == 3:
+            self.draw_text('Stage 1', self._color, self._center, 180)
+            self.draw_text('Stage 2', self._color, self._center, 250)
+            self.draw_text('Stage 3', self._color, self._center, 320)
+            self.draw_text('Stage 4', self._color, self._center, 390)
+
+        self._selector.draw_selector(self._state)
 
     def click_down(self):
         if self._state < 3:
@@ -46,6 +82,9 @@ class Menu:
     def click_up(self):
         if self._state > 0:
             self._state -= 1
+
+    def reset_state(self):
+        self._state = 0
 
     def get_state(self):
         return self._state
