@@ -24,31 +24,38 @@ class Menu:
 
     def display_menu(self):
         self._screen.fill((0, 0, 0))
-        self.draw_text('Play', self._color, self._screen.get_width() / 2, 180)
-        self.draw_text('Controls', self._color, self._screen.get_width() / 2, 250)
-        self.draw_text('Reset stage', self._color, self._screen.get_width() / 2, 320)
-        self.draw_text('Quit', self._color, self._screen.get_width() / 2, 390)
+        self.draw_text('Play', self._color, self._center, 180)
+        self.draw_text('Controls', self._color, self._center, 250)
+        self.draw_text('Reset save', self._color, self._center, 320)
+        self.draw_text('Quit', self._color, self._center, 390)
         self._selector.draw_selector(self._state)
 
     def display_controls(self):
         self._screen.fill((0, 0, 0))
-        self.draw_text('Move using the', self._color, self._screen.get_width() / 2, 160)
-        self.draw_text('arrow keys', self._color, self._screen.get_width() / 2, 230)
-        self.draw_text('Jump by clicking', self._color, self._screen.get_width() / 2, 320)
-        self.draw_text('the space bar', self._color, self._screen.get_width() / 2, 390)
-        self.draw_text('Back', self._color, self._screen.get_width() / 2, 530)
+        self.draw_text('Move using the', self._color, self._center, 160)
+        self.draw_text('arrow keys', self._color, self._center, 230)
+        self.draw_text('Jump by clicking', self._color, self._center, 320)
+        self.draw_text('the space bar', self._color, self._center, 390)
+        self.draw_text('Go Back', self._color, self._center, 530)
         self._selector.draw_selector(5)
 
     def start_screen(self, saves):
-        #saves = queries.get_saves()
 
         self._screen.fill((0, 0, 0))
-        self.draw_text('Select a save', self._color, self._screen.get_width() / 2, 80)
-        self.draw_text(saves[0][1], self._color, self._screen.get_width() / 2, 180)
-        self.draw_text(saves[1][1], self._color, self._screen.get_width() / 2, 250)
-        self.draw_text(saves[2][1], self._color, self._screen.get_width() / 2, 320)
-        self.draw_text(saves[3][1], self._color, self._screen.get_width() / 2, 390)
+        self.draw_text('Select a save', self._color, self._center, 80)
+        self.draw_text(saves[0][1], self._color, self._center, 180)
+        self.draw_text(saves[1][1], self._color, self._center, 250)
+        self.draw_text(saves[2][1], self._color, self._center, 320)
+        self.draw_text(saves[3][1], self._color, self._center, 390)
         self._selector.draw_selector(self._state)
+
+    def reset_save(self, name):
+        self._screen.fill((0, 0, 0))
+        self.draw_text('Press DEL', (200, 0, 0), self._center, 160)
+        self.draw_text('to reset', (200, 0, 0), self._center, 230)
+        self.draw_text(name, (200, 0, 0), self._center, 320)
+        self.draw_text('Go Back', self._color, self._center, 530)
+        self._selector.draw_selector(5)
 
     def level_selector(self, highest):
         self._screen.fill((0, 0, 0))
@@ -74,6 +81,12 @@ class Menu:
             self.draw_text('Stage 4', self._color, self._center, 390)
 
         self._selector.draw_selector(self._state)
+
+    def completed(self):
+        self._screen.fill((0, 0, 0))
+        self.draw_text('Congratulations!', (100, 250, 70), self._center, 230)
+        self.draw_text('Go Back', self._color, self._center, 530)
+        self._selector.draw_selector(5)
 
     def click_down(self):
         if self._state < 3:

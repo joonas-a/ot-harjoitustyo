@@ -16,7 +16,11 @@ class Application:
             if self._event_handler() is False:
                 break
 
-            if self._menu_state in (1, 2, 10, 20):
+            if self._level.is_completed():
+                self._menu_state = 100
+                self._level.reset()
+
+            if self._menu_state in (1, 2, 3, 10, 20, 100):
                 self._level.in_menu(self._menu_state, self._save_id)
 
             else:
@@ -50,13 +54,18 @@ class Application:
                 and self._level.get_menu_state() == 3:
                     return False
 
-                if event.key == pygame.K_RETURN and self._menu_state == 2:
+                if event.key == pygame.K_RETURN and self._menu_state in (2, 3, 100):
                     self._menu_state = 1
 
                 elif event.key == pygame.K_RETURN and self._menu_state in (1, 10, 20):
                     self._edit_menu_state(self._menu_state, self._level.get_menu_state())
+                    self._level.reset_menu_selector()
 
-            #return True #clears pylint error, however causes X button to not function
+                if event.key == pygame.K_DELETE and self._menu_state == 3:
+                    self._level.reset_save()
+                    self._menu_state = 10
+
+                #return True # <-- clears pylint error, however causes X button to not function
 
     def _edit_menu_state(self, state, selector):
         if state == 1: #main menu
@@ -65,8 +74,7 @@ class Application:
             if selector == 1:
                 self._menu_state = 2
             if selector == 2:
-                self._level.reset()
-                self._menu_state = 1
+                self._menu_state = 3
             if selector == 3:
                 self._menu_state = 1
 

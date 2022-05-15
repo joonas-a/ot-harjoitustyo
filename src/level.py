@@ -11,6 +11,7 @@ CELL_SIZE = 40
 
 ALL_STAGES = [STAGE_1, STAGE_2, STAGE_3, STAGE_4]
 
+
 class Level:
     def __init__(self, current_stage=ALL_STAGES[0], save_id=1):
         self.current_stage = current_stage #this can be hard-coded for testing
@@ -35,17 +36,18 @@ class Level:
             self.menu.display_menu()
         if option == 2:
             self.menu.display_controls()
+        if option == 3:
+            self.menu.reset_save(queries.get_name(self.save_id))
         if option == 10:
             self.menu.start_screen(queries.get_saves())
         if option == 20:
             highest = queries.get_completed(save_id)
             self.menu.level_selector(highest)
+        if option == 100:
+            self.menu.completed()
 
     def get_menu_state(self):
         return self.menu.get_state()
-
-    def reset_selector(self):
-        self.menu.reset_state()
 
     def update(self):
         self.player.movement()
@@ -61,6 +63,9 @@ class Level:
     def reset(self):
         self.__init__(self.current_stage, self.save_id)
 
+    def reset_menu_selector(self):
+        self.menu.reset_state()
+
     def has_access_to_stage(self, stage):
         highest = queries.get_completed(self.save_id)
         return highest >= stage
@@ -74,6 +79,9 @@ class Level:
     def load_save(self, save_id):
         self.save_id = save_id
 
+    def reset_save(self):
+        queries.set_highest(0, self.save_id)
+
     def next_stage(self):
         if self.current_stage == STAGE_1:
             queries.set_highest(1, self.save_id)
@@ -84,6 +92,12 @@ class Level:
         elif self.current_stage == STAGE_3:
             queries.set_highest(3, self.save_id)
             self.__init__(STAGE_4, self.save_id)
+
+    def is_completed(self):
+        if self.current_stage == STAGE_4:
+            if self.player.check_level_completion(self.door):
+                return True
+        return False
 
     def toggle_transparent_blocks(self):
         self.platforms.remove(self.removable_floor)
