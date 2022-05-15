@@ -47,4 +47,8 @@ def format(ctx):
 
 @task
 def build(ctx):
-    ctx.run("python src/initialize_database.py")
+    ctx.run("python src/initialize_database.py", pty=True)
+
+@task
+def build2(ctx):
+    ctx.run("python src/initialize_database.py", pty=False)

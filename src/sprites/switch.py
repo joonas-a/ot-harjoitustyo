@@ -7,7 +7,8 @@ class Switch(pygame.sprite.Sprite):
         self.is_activated = False
         self.image = pygame.Surface((0.8 * cell_size, cell_size / 8))
         self.image.fill((128, 128, 128))
-        self.rect = self.image.get_rect(bottomleft=(x_coord, y_coord + cell_size))
+        self.rect = self.image.get_rect(bottomleft=(x_coord + 0.1 * cell_size \
+            , y_coord + cell_size))
 
     def toggle_switch_on(self):
         self.is_activated = True
