@@ -10,12 +10,10 @@ class StubClock:
     def get_ticks(self):
         return 0
 
-
 class StubEvent:
     def __init__(self, event_type, key):
         self.type = event_type
         self.key = key
-
 
 class StubEventQueue:
     def __init__(self, events):
@@ -23,7 +21,6 @@ class StubEventQueue:
 
     def get(self):
         return self._events
-
 
 class StubRenderer:
     def render(self):

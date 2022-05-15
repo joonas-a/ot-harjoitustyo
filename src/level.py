@@ -1,5 +1,5 @@
 import pygame
-from menu import Menu
+from ui.menu import Menu
 from stages import STAGE_1, STAGE_2, STAGE_3, STAGE_4
 import queries
 from sprites.player import Player
