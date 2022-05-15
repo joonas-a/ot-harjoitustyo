@@ -22,6 +22,8 @@
 
 - Tämän jälkeen pelin voi avata suorittamalla ```poetry run invoke start```
 
+- Dokumentaation [Käyttöohje](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)-sivulla ohjeita sovelluksen käyttämiseen liittyen
+
 ### Muut komentorivikomennot
 
 - Suorita testi(t) ```poetry run invoke test```
