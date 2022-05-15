@@ -10,4 +10,6 @@
 |25.4.  | 2    | lisätoiminnallisuuden suunnitteleminen, pygame-menu kirjastoon perehtyminen |
 | 26.4. | 8    | päävalikon ja testien lisääminen |
 | 3.5.  | 8    | käyttöliittymän parantaminen, refaktorointi |
-| Yht. | 44 |
+| 14.5. | 5    | tasojen- ja niihin tavoitteiden lisääminen|
+| 15. 5.| 8    | refaktorointi, pelin läpipääsyn lisääminen, edistyksen tallentaminen tietokantaan |
+| Yht. | 57 |
