@@ -12,6 +12,8 @@
 
 - [Käyttöohje](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+- [Testausdokumentti](https://github.com/joonas-a/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
+
 ## Tasohyppelypeli
 
 ### Käyttäänotto
