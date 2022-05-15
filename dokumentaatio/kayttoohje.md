@@ -33,3 +33,6 @@
 - Pelihahmoa esittää keltainen laatikko
 - Hahmoa voi liikuttaa nuolinäppäimin, ja hypätä voi välilyönnillä (hahmo voi myös tuplahypätä)
 - Vihreälle ovelle pääsy on jokaisen tason tavoite, ja avaa seuraavan tason
+- Mikäli pelihahmo tippuu tasolta, alkaa kyseinen taso alusta
+
+- Pelistä pääsee takaisin päävalikkoon painamalla ESCAPE
