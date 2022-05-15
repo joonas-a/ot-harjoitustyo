@@ -7,7 +7,8 @@ class Player(pygame.sprite.Sprite):
         Metodeita kutsutaan pääasiassa Level-luokasta, joka vastaa pelin päälogiikasta.
 
         Attributes:
-            position: määrittelee mihin pelihahmo sijoitetaan x,y koordinaatistolla pelitasoa alustaessa
+            position: määrittelee mihin pelihahmo sijoitetaan x,y koordinaatistolla
+                      pelitasoa alustaessa
     """
     def __init__(self, position):
         super().__init__()
