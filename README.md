@@ -18,7 +18,9 @@
 
 - Asenna riippuvuudet ```poetry install```
 
-- Avaa peli ```poetry run invoke start```
+- Alusta SQLite tietokanta ```poetry run invoke build```
+
+- Tämän jälkeen pelin voi avata suorittamalla ```poetry run invoke start```
 
 ### Muut komentorivikomennot
 
