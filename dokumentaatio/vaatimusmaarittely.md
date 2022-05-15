@@ -2,30 +2,31 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksesta tulee yksinkertainen tasohyppelipeli. Tavoitteena on päästä kullakin kentällä maalin. Kentillä voi olla jokin tavoite joka tulee suorittaa ennen maaliin pääsyä.
+Sovellus on yksinkertainen tasohyppelipeli. Tavoitteena on päästä kullakin tasolla maalin. Tasoilla voi olla jokin tavoite joka tulee suorittaa ennen maaliin pääsyä.
 
 ## Käyttäjät
 
-Sovelluksen käyttämiseen vaaditaan käyttäjätunnus (pelkkä nimi), jonka käyttäjä voi luoda sovelluksen käynnistettyään. Käyttäjänimeä käytetään suoritettujen kenttien muistamiseen.
+Sovelluksessa on neljä tallennusslottia/käyttäjää, joista joku tulee valita peliin päästäkseen. Suoritetut tasot ovat käyttäjäkohtaisia.
 
 ## Toiminnallisuudet
 
-- [ ] Käyttäjä voi luoda uniikin käyttäjätunnuksen jolla kirjautua
-- [ ] Käyttäjä voi kirjautua ulos
-- [x] Sovelluksella on päävalikko
-- [ ] Käyttäjä näkee päävalikosta kaikki saatavilla olevat tasot
-- [ ] Käyttäjän tulee suorittaa edellinen taso avatakseen seuraavan
-- [ ] Peli muistaa käyttäjän suorittamat tasot
+- [x] Käyttäjä voi valita tallennusslotin / käyttäjän, joka tallentaa edistymisen pelissä
+- [x] Käyttäjä voi nollata edistymisen kullakin tallenusslotilla
+- [x] Sovelluksessa on päävalikko
+- [x] Käyttäjä näkee päävalikosta ohjeet pelaamista varten
+- [x] Käyttäjä näkee päävalikosta kaikki auki olevat tasot
+- [x] Käyttäjän tulee suorittaa edellinen taso avatakseen seuraavan
+- [x] Peli muistaa käyttäjän suorittamat tasot
+- [x] Viimeisen tason läpäistyään käyttäjälle näytetään onnitteluviesti
 
 ## Pelattavuus
 
+- [x] Käyttäjä voi navigoida valikoita nuolinäppäimin (ylös/alas), hyväksyä valinnan (enter) ja palata taakse (escape)
 - [x] Käyttäjä voi liikuttaa hahmoansa nuolinäppäimin
-- [x] Hahmo kykenee loikkaamaan välilyönnillä
-- [ ] Kentällä voi olla esteitä joita käyttäjä joutuu välttämään
+- [x] Hahmo kykenee loikkaamaan ja tuplaloikkaamaan välilyönnillä
+- [x] Tasoilla on tavoite, joka tulee suorittaa päästäkseen läpi
 
 ## Mahdollisia jatkokehitysideoita
 
-- Pelattavuuteen uusia ominaisuuksia
 - Sovellus näyttää tason suorittamiseen kuluneen ajan
-- Kentille vaarallisia vihollisia
-- Kentille jokin tavoite (puzzle) joka tulee suorittaa
+- Kentille vihollisia
